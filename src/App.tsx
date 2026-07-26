@@ -2,10 +2,27 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
+import {
+  SettingsForm,
+  type SettingsFormValues,
+} from './components/SettingsForm'
 import './App.css'
+
+const initialSettings: SettingsFormValues = {
+  displayName: 'Jane Doe',
+  email: 'jane@example.com',
+  bio: 'Product designer',
+}
 
 function App() {
   const [count, setCount] = useState(0)
+  const [settings, setSettings] = useState(initialSettings)
+  const [saveMessage, setSaveMessage] = useState<string | null>(null)
+
+  function handleSettingsSave(values: SettingsFormValues) {
+    setSettings(values)
+    setSaveMessage('Settings saved.')
+  }
 
   return (
     <>
@@ -28,6 +45,21 @@ function App() {
         >
           Count is {count}
         </button>
+      </section>
+
+      <div className="ticks"></div>
+
+      <section id="settings" aria-labelledby="settings-heading">
+        <h2 id="settings-heading">Settings</h2>
+        <SettingsForm
+          defaultValues={settings}
+          onSubmit={handleSettingsSave}
+        />
+        {saveMessage && (
+          <p className="settings-status" role="status">
+            {saveMessage}
+          </p>
+        )}
       </section>
 
       <div className="ticks"></div>

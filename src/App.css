@@ -70,6 +70,22 @@
   }
 }
 
+#settings {
+  padding: 32px;
+  border-top: 1px solid var(--border);
+  text-align: left;
+
+  @media (max-width: 1024px) {
+    padding: 24px 20px;
+  }
+}
+
+.settings-status {
+  margin-top: 16px;
+  font-size: 16px;
+  color: var(--text-h);
+}
+
 #next-steps {
   display: flex;
   border-top: 1px solid var(--border);
