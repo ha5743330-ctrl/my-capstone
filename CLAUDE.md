@@ -4,15 +4,15 @@ Guidance for Claude Code (or any AI assistant) working in this repo.
 
 ## Project Overview
 
-<!-- 2-3 sentences on what this project does and its current phase. -->
+A capstone project scaffolded with Vite + React + TypeScript.
 
 ## Stack
 
-- Language: <!-- e.g. TypeScript -->
+- Language: TypeScript
 - Runtime: Node.js (LTS)
 - Package manager: npm
-- Testing: <!-- e.g. Vitest -->
-- Linting/formatting: <!-- e.g. ESLint + Prettier -->
+- Testing: Vitest + Testing Library
+- Linting/formatting: ESLint (default Vite config)
 
 ## Conventions
 
@@ -32,3 +32,9 @@ Guidance for Claude Code (or any AI assistant) working in this repo.
 
 - Don't rewrite unrelated files in the same commit.
 - Don't invent config or secrets — flag if something's missing.
+
+## Project Rules (learned from FE-04 prompting drill)
+
+- Forms must use react-hook-form + zod, never uncontrolled inputs.
+- Every form field's error message must be linked via aria-describedby, not just aria-invalid.
+- When a prompt asks for a new component, explicitly confirm it's wired into the parent app (e.g. App.tsx) — don't assume integration happens automatically.
